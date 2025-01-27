@@ -1,36 +1,23 @@
 import { Routes } from '@angular/router';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
-import { langGuard } from './lang.guard';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'es/first',  // Default language redirect
+    redirectTo: 'first',  // Default language redirect
     pathMatch: 'full',
   },
   {
-    path: 'en/first',
+    path: 'first',
     component: FirstComponent,
-    canActivate: [langGuard],
   },
   {
-    path: 'en/second',
+    path: 'second',
     component: SecondComponent,
-    canActivate: [langGuard],
-  },
-  {
-    path: 'es/first',
-    component: FirstComponent,
-    canActivate: [langGuard],
-  },
-  {
-    path: 'es/second',
-    component: SecondComponent,
-    canActivate: [langGuard],
   },
   {
     path: '**',
-    redirectTo: 'es/first',  // Default language for invalid routes
+    redirectTo: 'first',  // Default language for invalid routes
   },
 ];
